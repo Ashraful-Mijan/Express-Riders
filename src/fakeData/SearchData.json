@@ -1,0 +1,11 @@
+[{"id":1,"vehicleImg":"https://vividesigning.com/wp-content/uploads/2020/10/97f61-1.jpg","vehicleName":"car","quatity":1,"price":100},
+{"id":2,"vehicleImg":"https://vividesigning.com/wp-content/uploads/2020/10/97f61-1.jpg","vehicleName":"car","quatity":2,"price":200},
+{"id":3,"vehicleImg":"https://vividesigning.com/wp-content/uploads/2020/10/97f61-1.jpg","vehicleName":"car","quatity":3,"price":34},
+{"id":4,"vehicleImg":"https://cdn.dribbble.com/users/3436905/screenshots/6320193/thunderbird-01_2x.png","vehicleName":"Bike","quatity":4,"price":40},
+{"id":5,"vehicleImg":"https://cdn.dribbble.com/users/3436905/screenshots/6320193/thunderbird-01_2x.png","vehicleName":"Bike","quatity":5,"price":50},
+{"id":6,"vehicleImg":"https://cdn.dribbble.com/users/3436905/screenshots/6320193/thunderbird-01_2x.png","vehicleName":"Bike","quatity":6,"price":66},
+{"id":7,"vehicleImg":"https://static.vecteezy.com/system/resources/thumbnails/000/494/877/small/big_tour_bus_02.jpg","vehicleName":"Bus","quatity":7,"price":71},
+{"id":8,"vehicleImg":"https://static.vecteezy.com/system/resources/thumbnails/000/494/877/small/big_tour_bus_02.jpg","vehicleName":"Bus","quatity":8,"price":87},
+{"id":9,"vehicleImg":"https://static.vecteezy.com/system/resources/thumbnails/000/494/877/small/big_tour_bus_02.jpg","vehicleName":"Bus","quatity":9,"price":98},
+{"id":10,"vehicleImg":"https://cdn2.vectorstock.com/i/thumb-large/98/91/metro-train-black-and-white-vector-29949891.jpg","vehicleName":"Train","quatity":10,"price":108},
+{"id":11,"vehicleImg":"https://cdn2.vectorstock.com/i/thumb-large/98/91/metro-train-black-and-white-vector-29949891.jpg","vehicleName":"Train","quatity":11,"price":116}]

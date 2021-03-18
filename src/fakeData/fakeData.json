@@ -1,0 +1,9 @@
+[{"id":1,
+"vehicleImg":"https://vividesigning.com/wp-content/uploads/2020/10/97f61-1.jpg","vehicleName":"Car"},
+{"id":2,
+"vehicleImg":"https://cdn.dribbble.com/users/3436905/screenshots/6320193/thunderbird-01_2x.png",
+"vehicleName":"Bike"},
+{"id":3,"vehicleImg":"https://static.vecteezy.com/system/resources/thumbnails/000/494/877/small/big_tour_bus_02.jpg",
+"vehicleName":"Bus"},
+{"id":4,
+"vehicleImg":"https://cdn2.vectorstock.com/i/thumb-large/98/91/metro-train-black-and-white-vector-29949891.jpg","vehicleName":"Train"}]
