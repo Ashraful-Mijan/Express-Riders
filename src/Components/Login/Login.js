@@ -5,14 +5,15 @@ import './Login.css'
 import firebaseConfig from '../../firebase.Config';
 import { logContext } from '../../App';
 import { useHistory, useLocation } from 'react-router-dom';
+import { FcGoogle } from "react-icons/fc";
 
 // firebase.initializeApp(firebaseConfig);
 
 if (!firebase.apps.length) {
     firebase.initializeApp(firebaseConfig);
- }else {
-    firebase.app(); 
- }
+} else {
+    firebase.app();
+}
 
 const Login = () => {
     let history = useHistory()
@@ -92,6 +93,29 @@ const Login = () => {
         e.preventDefault();
     }
 
+    const signInWithGoogle = () => {
+        const provider = new firebase.auth.GoogleAuthProvider();
+
+        firebase.auth()
+            .signInWithPopup(provider)
+            .then((res) => {
+                const userInfo = { ...user }
+                userInfo.email = res.user.email;
+                userInfo.error = '';
+                userInfo.success = true;
+                userInfo.isLogin = true;
+                setUser(userInfo)
+                setLogInfo(userInfo)
+                history.replace(from);
+            }).catch((error) => {
+                const userInfo = { ...user }
+                userInfo.error = error.message;
+                userInfo.success = false;
+                console.log(error.message)
+                setUser(userInfo);
+            });
+    }
+
     return (
         <div className='container mt-5 py-3 px-3'>
             <div className="row ">
@@ -102,29 +126,38 @@ const Login = () => {
                         {
                             !toggle &&
                             <div className="mb-3">
-                                <input onBlur={onInputField} type="text" name='name' placeholder='Name' className="form-control" />
+                                <input onBlur={onInputField} type="text" name='name' placeholder='Name' className="form-control" required />
                             </div>
                         }
                         <div className="mb-3">
-                            <input onBlur={onInputField} type="text" name='email' placeholder='Email' className="form-control" />
+                            <input onBlur={onInputField} type="text" name='email' placeholder='Email' className="form-control" required />
 
-                            <div className="form-text">We'll never share your email with anyone else.</div>
+                            {/* <div className="form-text">We'll never share your email with anyone else.</div> */}
                         </div>
                         <div className="mb-3">
-                            <input onBlur={onInputField} type="text" placeholder='Password' name='password' className="form-control" />
+                            <input onBlur={onInputField} type="text" placeholder='Password' name='password' className="form-control" required />
                         </div>
+                        {
+                            toggle &&
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+                                <label class="form-check-label" for="exampleCheck1">Remember Me</label>
+                            </div>
+                        }
                         {
                             !toggle &&
                             <div className="mb-3">
-                                <input onBlur={onInputField} type="text" placeholder='Confirm Password' name='ConfirmPassword' className="form-control" />
+                                <input onBlur={onInputField} type="text" placeholder='Confirm Password' name='ConfirmPassword' className="form-control" required />
                             </div>
                         }
                         <button type="submit" className="btn btn-primary w-100">Submit</button>
 
-                        <p className="text-secondary text-center">{toggle ? `Don't have an account?` : `Alrady have an account?`} <span className='text-primary' onClick={() => setToggle(!toggle)}>{toggle ? 'Create an Account' : 'Login'}</span></p>
+                        <p className="text-secondary text-center">{toggle ? `Don't have an account?` : `Alrady have an account?`} <span className='text-primary cursor' onClick={() => setToggle(!toggle)}>{toggle ? 'Create an Account' : 'Login'}</span></p>
                     </form>
-                    <p className='text-center text-danger mt-3'>or</p>
-                    <p className='text-center fw-bold fs-3 cursor-pointer text-danger mt-3'>Continue With Google</p>
+                    <div className='mx-auto text-center'>
+                        <p className='text-center text-danger'>or</p>
+                        <button onClick={signInWithGoogle} className='btn btn-outline-danger rounded-pill'><FcGoogle /> Continue With Google</button>
+                    </div>
                 </div>
             </div>
         </div>

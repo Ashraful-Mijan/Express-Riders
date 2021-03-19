@@ -4,8 +4,9 @@ import { useHistory } from 'react-router-dom';
 const RiderType = ({ rider }) => {
     const { vehicleImg, vehicleName } = rider;
     let history = useHistory()
+    
     const handleTicket = () => {
-        history.push("/destination")
+        history.push(`/destination/${vehicleName}`)
     }
     return (
         <div className='col-md-3 mb-3' onClick={handleTicket}>

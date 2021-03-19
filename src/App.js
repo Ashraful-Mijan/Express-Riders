@@ -26,6 +26,10 @@ function App() {
           <Route path='/home'>
             <Home />
           </Route>
+          <PrivetRoute path='/destination/:vehicleName'>
+            <Navbar />
+            <Destination />
+          </PrivetRoute>
           <PrivetRoute path='/destination'>
             <Navbar />
             <Destination />
