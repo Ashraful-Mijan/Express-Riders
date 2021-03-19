@@ -4,8 +4,10 @@ import SearchData from '../../fakeData/SearchData.json'
 import AvailableVehicle from '../AvailableVehicle/AvailableVehicle';
 const Destination = () => {
     const [search, setSearch] = useState(false)
-    const { vehicleName } = useParams();
 
+    const { vehicleName } = useParams();
+    
+    console.log(vehicleName)
     const availableVehicle = SearchData.filter(dt => { return dt.vehicleName === vehicleName })
     console.log(availableVehicle)
 
