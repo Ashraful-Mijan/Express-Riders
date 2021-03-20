@@ -14,14 +14,12 @@ const Destination = () => {
         time: ''
     })
     const availableVehicle = SearchData.filter(dt => { return dt.vehicleName === vehicleName })
-    console.log(availableVehicle)
 
     const storeDestination = (e) => {
         const newDestination = {...destination}
         newDestination[e.target.name] = e.target.value;
         setDestination(newDestination);
     }
-    console.log(destination)
 
     return (
         <div className='container'>

@@ -45,7 +45,7 @@ function App() {
             <Login />
           </Route>
           <Route path='*'>
-            <h1>This page is 404!</h1>
+            
           </Route>
         </Switch>
       </Router>
