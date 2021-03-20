@@ -7,8 +7,6 @@ import { logContext } from '../../App';
 import { useHistory, useLocation } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc";
 
-// firebase.initializeApp(firebaseConfig);
-
 if (!firebase.apps.length) {
     firebase.initializeApp(firebaseConfig);
 } else {
@@ -46,16 +44,13 @@ const Login = () => {
         let emailValidation;
 
         if (e.target.name === 'email') {
-            // isFieldValid = /\S+@\S+\.\S+/.test(e.target.value);
 
             emailValidation = /\S+@\S+\.\S+/.test(e.target.value);
             setValid({ ...valid, validEmail: emailValidation })
         }
         if (e.target.name === 'password') {
             const isPasswordValid = e.target.value.length > 4 && /\d{1}/.test(e.target.value);
-            // const passHasNumber = /\d{1}/.test(e.target.value);
-            // isFieldValid = (isPasswordValid && passHasNumber);
-
+            
             setValid({ ...valid, validPassword: isPasswordValid, vPassword: e.target.value })
         }
         if (e.target.name === 'ConfirmPassword') {
@@ -66,23 +61,22 @@ const Login = () => {
         if (isFieldValid) {
             const userInfo = { ...user };
             userInfo[e.target.name] = e.target.value;
-
-            // userInfo.validationEmail = emailValidation;
-            // userInfo.validationPassword = passwordValidation;
             setUser(userInfo);
         }
     }
 
 
     const formSubmit = (e) => {
-        if (!toggle && user.email && user.password) {
+        if (!toggle && user.email && user.password && user.password === user.ConfirmPassword) {
             firebase.auth().createUserWithEmailAndPassword(user.email, user.password)
                 .then(res => {
                     const userInfo = { ...user }
                     userInfo.error = '';
                     userInfo.success = true;
+                    userInfo.isLogin = true;
                     setUser(userInfo)
                     setLogInfo(userInfo)
+                    history.replace(from);
                 })
                 .catch((error) => {
                     const userInfo = { ...user }
@@ -141,7 +135,8 @@ const Login = () => {
     }
 
     return (
-        <div className='container mt-5 py-3 px-3'>
+        <div className='container py-3 px-3'>
+            <hr/>
             <div className="row ">
                 <div className="col-md-5 mx-auto p-4 border">
                     <h2 className='text-center'>{toggle ? 'Login' : 'Create an account'}</h2>

@@ -1,5 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.bundle'
+import 'bootstrap/dist/js/bootstrap.bundle';
 import Home from './Components/Home/Home';
 import {
   BrowserRouter as Router,
@@ -26,6 +26,12 @@ function App() {
           <Route path='/home'>
             <Home />
           </Route>
+          <Route path='/blog'>
+            <Navbar />
+          </Route>
+          <Route path='/contact'>
+            <Navbar />
+          </Route>
           <PrivetRoute path='/destination/:vehicleName'>
             <Navbar />
             <Destination />
@@ -37,6 +43,9 @@ function App() {
           <Route path='/login'>
             <Navbar />
             <Login />
+          </Route>
+          <Route path='*'>
+            <h1>This page is 404!</h1>
           </Route>
         </Switch>
       </Router>
