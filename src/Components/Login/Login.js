@@ -50,7 +50,7 @@ const Login = () => {
         }
         if (e.target.name === 'password') {
             const isPasswordValid = e.target.value.length > 4 && /\d{1}/.test(e.target.value);
-            
+
             setValid({ ...valid, validPassword: isPasswordValid, vPassword: e.target.value })
         }
         if (e.target.name === 'ConfirmPassword') {
@@ -76,6 +76,7 @@ const Login = () => {
                     userInfo.isLogin = true;
                     setUser(userInfo)
                     setLogInfo(userInfo)
+                    UpdateUserInfo(user.name)
                     history.replace(from);
                 })
                 .catch((error) => {
@@ -93,11 +94,13 @@ const Login = () => {
                 .then(res => {
                     const userInfo = { ...user }
                     userInfo.error = '';
+                    userInfo.name = res.user.displayName;
                     userInfo.success = true;
                     userInfo.isLogin = true;
                     setUser(userInfo)
                     setLogInfo(userInfo)
                     history.replace(from);
+                    console.log(res.user.displayName)
                 })
                 .catch((error) => {
                     const userInfo = { ...user }
@@ -110,7 +113,7 @@ const Login = () => {
 
         e.preventDefault();
     }
-
+    console.log(user.name)
     const signInWithGoogle = () => {
         const provider = new firebase.auth.GoogleAuthProvider();
 
@@ -134,9 +137,22 @@ const Login = () => {
             });
     }
 
+
+    const UpdateUserInfo = name => {
+        const user = firebase.auth().currentUser;
+
+        user.updateProfile({
+            displayName: name
+        }).then(function (res) {
+           
+        }).catch(function (error) {
+            console.log(error.message)
+        });
+    }
+
     return (
         <div className='container py-3 px-3'>
-            <hr/>
+            <hr />
             <div className="row ">
                 <div className="col-md-5 mx-auto p-4 border">
                     <h2 className='text-center'>{toggle ? 'Login' : 'Create an account'}</h2>
@@ -182,7 +198,7 @@ const Login = () => {
                             <span className="text-warning">Must match the previous entry</span>
                         }
                         <div className="form-text">{user.error}</div>
-                        <button type="submit" className="btn btn-primary w-100">{toggle? 'Log In' : 'Create Account'}</button>
+                        <button type="submit" className="btn btn-primary w-100">{toggle ? 'Log In' : 'Create Account'}</button>
 
                         <p className="text-secondary text-center">{toggle ? `Don't have an account?` : `Alrady have an account?`} <span className='text-primary cursor' onClick={() => setToggle(!toggle)}>{toggle ? 'Create an Account' : 'Login'}</span></p>
                     </form>

@@ -37,7 +37,7 @@ const Navbar = () => {
                         {
                             logInfo.isLogin ?
                                 <>
-                                    <span className="nav-link text-primary"><FaUserCircle /> {logInfo.email}</span>
+                                    <span className="nav-link text-primary"><FaUserCircle /> {logInfo.name}</span>
                                     <span onClick={signOutUser} className="nav-link d-inline-block btn btn-danger text-white px-3" >Log Out</span>
                                 </>
 
