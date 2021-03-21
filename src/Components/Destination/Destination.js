@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import SearchData from '../../fakeData/SearchData.json'
 import AvailableVehicle from '../AvailableVehicle/AvailableVehicle';
-import { MapDestination } from '../MapDestination/MapDestination';
+import GoogleMaps from '../GoogleMaps/GoogleMaps';
 
 const Destination = () => {
     const [search, setSearch] = useState(false)
@@ -67,8 +67,8 @@ const Destination = () => {
                     </div>
 
                 </div>
-                <div className="col-md-8 px-3">
-                    <MapDestination/>
+                <div className="col-md-8 px-3 h-100">
+                    <GoogleMaps/>
                 </div>
             </div>
         </div>
