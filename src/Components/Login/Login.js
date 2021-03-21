@@ -122,6 +122,7 @@ const Login = () => {
             .then((res) => {
                 const userInfo = { ...user }
                 userInfo.email = res.user.email;
+                userInfo.name = res.user.displayName;
                 userInfo.error = '';
                 userInfo.success = true;
                 userInfo.isLogin = true;
@@ -144,7 +145,7 @@ const Login = () => {
         user.updateProfile({
             displayName: name
         }).then(function (res) {
-           
+
         }).catch(function (error) {
             console.log(error.message)
         });

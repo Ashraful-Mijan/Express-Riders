@@ -8,7 +8,7 @@ const Services = () => {
             <div className="container my-5 py-5">
                 <div className="row">
                     <div className="col-md-6 pb-3">
-                        <h1>Why do we use it?</h1>
+                        <h1>Why Your Ride with us?</h1>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi provident, veritatis sapiente ducimus cupiditate deleniti labore explicabo commodi magni vel!</p>
                         <button className='btn btn-outline-success'>Get Services</button>
                     </div>
