@@ -182,7 +182,7 @@ const Login = () => {
                             <span className="text-warning">Must match the previous entry</span>
                         }
                         <div className="form-text">{user.error}</div>
-                        <button type="submit" className="btn btn-primary w-100">Submit</button>
+                        <button type="submit" className="btn btn-primary w-100">{toggle? 'Log In' : 'Create Account'}</button>
 
                         <p className="text-secondary text-center">{toggle ? `Don't have an account?` : `Alrady have an account?`} <span className='text-primary cursor' onClick={() => setToggle(!toggle)}>{toggle ? 'Create an Account' : 'Login'}</span></p>
                     </form>

@@ -32,7 +32,7 @@ const Navbar = () => {
                     <div className="navbar-nav ms-auto fw-bold">
                         <Link className="nav-link active" aria-current="page" to="/home">Home</Link>
                         <Link className="nav-link" to="/destination">Destination</Link>
-                        <Link className="nav-link" to="/blog">Blog</Link>
+                        <Link className="nav-link" to="/services">Services</Link>
                         <Link className="nav-link" to="/contact">Contact</Link>
                         {
                             logInfo.isLogin ?

@@ -11,6 +11,8 @@ import Login from './Components/Login/Login';
 import { createContext, useState } from 'react';
 import Destination from './Components/Destination/Destination';
 import PrivetRoute from './Components/PrivetRoute/PrivetRoute';
+import About from './Components/Services/Services';
+import Services from './Components/Services/Services';
 
 export const logContext = createContext()
 
@@ -26,8 +28,8 @@ function App() {
           <Route path='/home'>
             <Home />
           </Route>
-          <Route path='/blog'>
-            <Navbar />
+          <Route path='/services'>
+            <Services />
           </Route>
           <Route path='/contact'>
             <Navbar />
