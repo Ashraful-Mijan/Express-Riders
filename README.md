@@ -1,17 +1,16 @@
-# assignment: 9
+# Express Riders
 
-## Project Name: Express Riders
+Express Riders is a simple online single page ride booking website. Where an user can easily book their rides and have a relaxed ride. 
 
-## Student Info 
-Name: Ashraful Mijan
-Email: ashrafulmijan5@gmail.com
-mobile: 01785920566
+Express Riders [Website](https://express-riders.web.app/)
 
-# This Project create using: 
-react, bootstrap, react icon, firebase authentication.
+## Features
+ * online booking rides 
+ * tracking rides
+ * firebase Authentication
+ * google map implement
 
-# Live Site:
-###### [Express Riders](https://express-riders.web.app/)
-
-
-# react-auth-Ashraful-Mijan
+## Front-End Technology
+ * React.js
+ * Bootstrap.js
+ * css3
